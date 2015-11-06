@@ -5,9 +5,9 @@
  */
 package com.fpmislata.banco.presentacion;
 
-import com.fpmislata.banco.bussiness.domain.EntidadBancaria;
+
 import com.fpmislata.banco.bussiness.service.EntidadBancariaService;
-import com.fpmislata.banco.bussiness.service.impl.EntidadBancariaServiceImpl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

@@ -27,6 +27,7 @@ public class EntidadBancaria {
     }
 
     public EntidadBancaria() {
+        this.fechaCreacion = new Date();
     }
 
     public int getIdEntidadBancaria() {

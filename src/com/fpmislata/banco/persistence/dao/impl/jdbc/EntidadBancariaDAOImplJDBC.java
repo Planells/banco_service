@@ -67,8 +67,12 @@ public class EntidadBancariaDAOImplJDBC implements EntidadBancariaDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(sentencia, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, entidadBancaria.getNombre());
             preparedStatement.setString(2, entidadBancaria.getCodigoEntidad());
-            java.sql.Date sqlDate = new java.sql.Date(entidadBancaria.getFechaCreacion().getTime());
-            preparedStatement.setDate(3, sqlDate);
+            if(entidadBancaria.getFechaCreacion() == null){
+            preparedStatement.setDate(3, null);
+            }else{           
+            preparedStatement.setDate(3, new java.sql.Date(entidadBancaria.getFechaCreacion().getTime()));
+            }
+            
             preparedStatement.setString(4, entidadBancaria.getDireccion());
             preparedStatement.setString(5, entidadBancaria.getCif());
 
@@ -100,8 +104,11 @@ public class EntidadBancariaDAOImplJDBC implements EntidadBancariaDAO {
             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE EntidadBancaria SET nombre = ?, codigoEntidad = ?, fechaCreacion= ?, direccion= ?, CIF= ? where idEntidadBancaria=?");
             preparedStatement.setString(1, entidadBancaria.getNombre());
             preparedStatement.setString(2, entidadBancaria.getCodigoEntidad());
-            java.sql.Date sqlDate = new java.sql.Date(entidadBancaria.getFechaCreacion().getTime());
-            preparedStatement.setDate(3, sqlDate);
+            if(entidadBancaria.getFechaCreacion() == null){
+            preparedStatement.setDate(3, null);
+            }else{           
+            preparedStatement.setDate(3, new java.sql.Date(entidadBancaria.getFechaCreacion().getTime()));
+            }
             preparedStatement.setString(4, entidadBancaria.getDireccion());
             preparedStatement.setString(5, entidadBancaria.getCif());
             preparedStatement.setInt(6, entidadBancaria.getIdEntidadBancaria());

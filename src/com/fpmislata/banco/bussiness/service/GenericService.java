@@ -18,5 +18,6 @@ public interface GenericService<T> {
     T insert(T t);
     T update(T t);
     List<T> findAll();
+    T defaultValue();
     
 }

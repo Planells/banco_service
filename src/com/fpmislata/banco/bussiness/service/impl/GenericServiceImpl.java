@@ -9,9 +9,12 @@ package com.fpmislata.banco.bussiness.service.impl;
 import com.fpmislata.banco.bussiness.service.GenericService;
 
 import com.fpmislata.banco.persistence.dao.GenericDAO;
+import java.lang.reflect.ParameterizedType;
 
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -47,6 +50,19 @@ public class GenericServiceImpl<T> implements GenericService<T> {
          return genericDAO.findAll();
     }
 
+    @Override
+    public T defaultValue() {
+        T t;
+        try {
+            t = getEntityClass().newInstance();
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+        return t ;
+    }
+   private Class<T> getEntityClass() {
+         return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+     }
     
     
     
