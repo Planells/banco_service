@@ -5,10 +5,30 @@
  */
 package com.fpmislata.banco.security;
 
+import org.jasypt.util.password.StrongPasswordEncryptor;
+
 /**
  *
  * @author German
  */
-public class PasswordManagerImplJasypt {
-    
+public class PasswordManagerImplJasypt implements PasswordManager {
+     private StrongPasswordEncryptor strongPasswordEncryptor = new StrongPasswordEncryptor();
+     
+    @Override
+    public String encrypt(String password) {
+        
+        String encryptedPassword = strongPasswordEncryptor.encryptPassword(password);
+        return encryptedPassword;
+    }
+
+    @Override
+    public boolean check(String password, String encrypt) {
+        
+        if (strongPasswordEncryptor.checkPassword(password, encrypt)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

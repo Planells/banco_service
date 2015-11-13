@@ -13,8 +13,13 @@ import com.fpmislata.banco.bussiness.domain.Usuario;
  */
 public class AuthorizationImpDummy implements Authorization {
 
+
     @Override
-    public boolean isAuthorizedURL(Usuario usuario, String url) {
-        return true;  
+    public boolean isAuthorizedURL(Usuario usuario, String url, String metodo) {
+        if(url == "/banco_api/api/login" ){
+         return true;
+        }else{
+         return true;
+        }
     }
 }

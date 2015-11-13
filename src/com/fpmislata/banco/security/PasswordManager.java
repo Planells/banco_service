@@ -11,6 +11,6 @@ package com.fpmislata.banco.security;
  */
 public interface PasswordManager {
     String encrypt(String password);
-    
+    boolean check (String password, String encrypt);
     
 }
