@@ -5,6 +5,7 @@
  */
 package com.fpmislata.banco.persistence.dao.impl.jdbc;
 
+import com.fpmislata.banco.persistence.jdbc.ConnectionFactory;
 import com.fpmislata.banco.bussiness.domain.EntidadBancaria;
 import com.fpmislata.banco.persistence.dao.EntidadBancariaDAO;
 import java.sql.*;

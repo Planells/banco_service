@@ -8,10 +8,9 @@ package com.fpmislata.banco.bussiness.service;
 import com.fpmislata.banco.bussiness.domain.EntidadBancaria;
 import java.util.List;
 
-
 /**
  *
- * @author Dark
+ * @author German
  */
 public interface EntidadBancariaService extends GenericService<EntidadBancaria> {
     
